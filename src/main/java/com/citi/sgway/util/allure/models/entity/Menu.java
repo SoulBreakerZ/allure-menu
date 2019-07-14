@@ -37,7 +37,6 @@ public class Menu implements Serializable {
     private String path;
 
 	@NotEmpty
-	@Email
     private String description;
     
 	@NotNull

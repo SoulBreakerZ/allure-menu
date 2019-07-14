@@ -4,12 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.citi.sgway.util.allure</groupId>
-	<artifactId>allure</artifactId>
+	<artifactId>allure-menu</artifactId>
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>spring-boot-data-jpa</name>
-	<description>Demo project for Spring Boot</description>
+	<name>allure-menu</name>
+	<description>Allure menu</description>
 
 	<parent>
 	    <groupId>org.springframework.boot</groupId>
