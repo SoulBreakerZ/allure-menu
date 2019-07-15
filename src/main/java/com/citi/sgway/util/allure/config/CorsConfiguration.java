@@ -1,4 +1,4 @@
-package com.citi.sgway.util.allure;
+package com.citi.sgway.util.allure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
