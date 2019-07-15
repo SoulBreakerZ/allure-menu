@@ -8,8 +8,8 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>allure-menu</name>
-	<description>Allure menu</description>
+	<name>Allure menu</name>
+	<description>Menu interface for allure-report</description>
 
 	<parent>
 	    <groupId>org.springframework.boot</groupId>
