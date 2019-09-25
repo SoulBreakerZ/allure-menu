@@ -1,50 +1,51 @@
-package com.citi.sgway.util.allure.services;
+package com.citi.sgway.util.allure.services.impl;
 
 import java.util.List;
 
-import com.citi.sgway.util.allure.models.entity.Menu;
+import com.citi.sgway.util.allure.data.entity.Menu;
+import com.citi.sgway.util.allure.services.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.citi.sgway.util.allure.dao.MenuDAO;
+import com.citi.sgway.util.allure.data.DAOMenu;
 
 @Service
 public class MenuServiceImpl implements MenuService {
 
 	@Autowired
-	private MenuDAO menuDAO;
+	private DAOMenu DAOMenu;
 
 	@Override
 	@Transactional(readOnly=true)
 	public List<Menu> findAll() {
-		return (List<Menu>) menuDAO.findAll();
+		return (List<Menu>) DAOMenu.findAll();
+	}
+
+	@Override
+	@Transactional(readOnly=true)
+	public Page<Menu> findAll(Pageable pageable) {
+		return DAOMenu.findAll(pageable);
 	}
 
 	@Override
 	@Transactional
 	public Menu save(Menu menu) {
-		return menuDAO.save(menu);
+		return DAOMenu.save(menu);
 	}
 
 	@Override
 	@Transactional(readOnly=true)
 	public Menu findOne(Long id) {
-		return menuDAO.findById(id).orElse(null);
+		return DAOMenu.findById(id).orElse(null);
 	}
 
 	@Override
 	@Transactional
 	public void deleteById(Long id) {
-		menuDAO.deleteById(id);
-	}
-
-	@Override
-	public Page<Menu> findAll(Pageable pageable) {
-		// TODO Auto-generated method stub
-		return menuDAO.findAll(pageable);
+		DAOMenu.deleteById(id);
 	}
 
 }

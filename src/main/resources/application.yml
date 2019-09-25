@@ -1,0 +1,33 @@
+logging:
+    level:
+        org:
+            hibernate:
+                SQL: debug
+server:
+    servlet:
+        context-path: /allure-menu/api/rest
+spring:
+    datasource:
+        driver-class-name: org.h2.Driver
+        password: sa
+        url: jdbc:h2:mem:menudb;DB_CLOSE_ON_EXIT=FALSE
+        username: sa
+    h2:
+        console:
+            enabled: true
+            path: /h2-console
+    jpa:
+        database-platform: org.hibernate.dialect.H2Dialect
+        hibernate:
+            ddl-auto: create-drop
+
+    data:
+        web:
+            pageable:
+                size-parameter: size
+                page-parameter: page
+                default-page-size: 10
+                one-indexed-parameters: false
+                max-page-size: 2000
+                prefix:
+                qualifier-delimiter: _

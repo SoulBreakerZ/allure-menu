@@ -1,15 +1,13 @@
-package com.citi.sgway.util.allure.models.entity;
+package com.citi.sgway.util.allure.data.entity;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
-public class Menu implements Serializable {
+@EntityListeners(AuditingEntityListener.class)
+public class Menu extends Auditable implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -25,18 +23,10 @@ public class Menu implements Serializable {
 
 	@NotEmpty
     private String description;
-    
-	@NotNull
-    @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern="dd/MM/yyyy")
-    private Date creationDate;
-	
-	public String imagePath;
 
-	@PrePersist
-	public void prePersist() {
-		creationDate = new Date();
-	}
+	
+	private String imagePath;
+
 	public Long getId() {
 		return id;
 	}
@@ -67,14 +57,6 @@ public class Menu implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Date getCreationDate() {
-		return creationDate;
-	}
-
-	public void setCreationDate(Date creationDate) {
-		this.creationDate = creationDate;
 	}
 
 	public String getImagePath() {
