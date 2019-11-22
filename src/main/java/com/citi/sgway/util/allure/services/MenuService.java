@@ -2,19 +2,19 @@ package com.citi.sgway.util.allure.services;
 
 import java.util.List;
 
-import com.citi.sgway.util.allure.models.entity.Menu;
+import com.citi.sgway.util.allure.data.entity.Menu;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 
 public interface MenuService {
-	public List<Menu> findAll();
+	List<Menu> findAll();
 
-	public Page<Menu> findAll(Pageable pageable);
+	Page<Menu> findAll(Pageable pageable);
 
-	public Menu save(Menu menu);
+	Menu save(Menu menu);
 
-	public Menu findOne(Long id);
+	Menu findOne(Long id);
 
-	public void deleteById(Long id);
+	void deleteById(Long id);
 }
