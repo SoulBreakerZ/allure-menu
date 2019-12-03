@@ -1,6 +1,6 @@
 package com.citi.sgway.util.allure.web.rest;
 
-import com.citi.sgway.util.allure.services.ProjectTestService;
+import com.citi.sgway.util.allure.services.TestProjectService;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -15,7 +15,7 @@ public class TestProjectControllerTest {
 
 
     @InjectMocks
-    private ProjectTestService projectTestService;
+    private TestProjectService testProjectService;
 
     @Test
     public void testFindAll() {

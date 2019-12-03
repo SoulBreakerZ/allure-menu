@@ -7,13 +7,13 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DAOProjectBranch extends PagingAndSortingRepository<TestProject, Long> {
+public interface DAOTestProject extends PagingAndSortingRepository<TestProject, Long> {
 
-    List<TestProject> findByProject(Long projectId);
+    List<TestProject> findByProjectId(Long projectId);
 
-    TestProject findByBranch(Long projectId);
+    TestProject findByBranchId(Long projectId);
 
-    TestProject findByProjectAndBranch(Long projectId,Long branchId);
+    TestProject findByProjectIdAndBranchId(Long projectId,Long branchId);
 
 
 }

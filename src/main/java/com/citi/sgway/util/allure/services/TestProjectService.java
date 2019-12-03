@@ -7,7 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 
-public interface ProjectTestService {
+public interface TestProjectService {
 	List<TestProject> findAll();
 
 	Page<TestProject> findAll(Pageable pageable);
