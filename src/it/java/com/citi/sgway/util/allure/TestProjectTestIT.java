@@ -1,7 +1,7 @@
 package com.citi.sgway.util.allure;
 
-import com.citi.sgway.util.allure.data.entity.Menu;
-import com.citi.sgway.util.allure.web.rest.MenuController;
+import com.citi.sgway.util.allure.data.entity.TestProject;
+import com.citi.sgway.util.allure.web.rest.ProjectTestController;
 import com.google.gson.Gson;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Issue;
@@ -28,31 +28,31 @@ import java.util.List;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @ContextConfiguration(classes = {Application.class})
-@Epic("Menu")
+@Epic("TestProject")
 @Tag("IntegrationTest")
-public class MenuTestIT {
+public class TestProjectTestIT {
 
-	private static final Logger LOGGER = LogManager.getLogger(MenuTestIT.class);
+	private static final Logger LOGGER = LogManager.getLogger(TestProjectTestIT.class);
 
 	@Autowired
-	private MenuController menuController;
+	private ProjectTestController projectTestController;
 
 	@Owner("Reimy")
 	@Issue("Find all menu method")
 	@Test
 	public void testFindAll() {
-		List<Menu> menus = menuController.findAll();
-		LOGGER.info(new Gson().toJson(menus));
-		Assertions.assertTrue(menus.size() > 0);
+		List<TestProject> testProjects = projectTestController.findAll();
+		LOGGER.info(new Gson().toJson(testProjects));
+		Assertions.assertTrue(testProjects.size() > 0);
 	}
 
 	@Owner("Reimy")
 	@Issue("Find all menu method")
 	@Test
 	public void testFindById() {
-		Menu menu = menuController.findById(1L);
-		LOGGER.info(new Gson().toJson(menu));
-		Assertions.assertNotNull(menu);
+		TestProject testProject = projectTestController.findById(1L);
+		LOGGER.info(new Gson().toJson(testProject));
+		Assertions.assertNotNull(testProject);
 	}
 
 	@Owner("Reimy")
@@ -62,7 +62,7 @@ public class MenuTestIT {
 		Pageable pageable = PageRequest.of(0, 5, Sort.by(
 				Order.asc("name"),
 				Order.desc("id")));
-		Page<Menu> menus = menuController.findAll(pageable);
+		Page<TestProject> menus = projectTestController.findAll(pageable);
 		LOGGER.info(new Gson().toJson(menus));
 		Assertions.assertTrue(menus.getSize() > 0);
 	}
@@ -72,14 +72,14 @@ public class MenuTestIT {
 	@Issue("Find all menu method")
 	@Test
 	public void testCreate() {
-		Menu menu = new Menu();
-		menu.setCreatedDate(LocalDateTime.now());
-		menu.setDescription("Hello");
-		menu.setName("SG-SIM");
-		menu.setPath("/test/sg-sim");
-		Menu menuReturned = menuController.create(menu);
-		LOGGER.info(new Gson().toJson(menuReturned));
-		Assertions.assertNotNull(menu);
+		TestProject testProject = new TestProject();
+		testProject.setCreatedDate(LocalDateTime.now());
+		testProject.setDescription("Hello");
+		testProject.setName("SG-SIM");
+		testProject.setPath("/test/sg-sim");
+		TestProject testProjectReturned = projectTestController.create(testProject);
+		LOGGER.info(new Gson().toJson(testProjectReturned));
+		Assertions.assertNotNull(testProject);
 	}
 
 
@@ -87,17 +87,17 @@ public class MenuTestIT {
 	@Issue("Edit method from menu")
 	@Test
 	public void testEdit() {
-		Menu menuToEdit = menuController.findById(1L);
-		menuToEdit.setName("SG-ACSM");
-		Menu menu = menuController.edit(menuToEdit.getId(),menuToEdit);
-		LOGGER.info(new Gson().toJson(menu));
-		Assertions.assertNotNull(menu);
+		TestProject testProjectToEdit = projectTestController.findById(1L);
+		testProjectToEdit.setName("SG-ACSM");
+		TestProject testProject = projectTestController.edit(testProjectToEdit.getId(), testProjectToEdit);
+		LOGGER.info(new Gson().toJson(testProject));
+		Assertions.assertNotNull(testProject);
 	}
 
 	@Owner("Reimy")
 	@Issue("Delete method from menu")
 	@Test
 	public void testDelete() {
-		menuController.delete(3L);
+		projectTestController.delete(3L);
 	}
 }

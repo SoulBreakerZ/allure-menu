@@ -1,13 +1,17 @@
 package com.citi.sgway.util.allure.data.entity;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Menu extends Auditable implements Serializable {
+public class Project extends Auditable implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,15 +21,13 @@ public class Menu extends Auditable implements Serializable {
 	
 	@NotEmpty
 	private String name;
-	
-	@NotEmpty
-    private String path;
 
-	@NotEmpty
     private String description;
 
-	
 	private String imagePath;
+
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	private List<Branch> branches;
 
 	public Long getId() {
 		return id;
@@ -43,14 +45,6 @@ public class Menu extends Auditable implements Serializable {
 		this.name = name;
 	}
 
-	public String getPath() {
-		return path;
-	}
-
-	public void setPath(String path) {
-		this.path = path;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -65,5 +59,13 @@ public class Menu extends Auditable implements Serializable {
 
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
+	}
+
+	public List<Branch> getBranches() {
+		return branches;
+	}
+
+	public void setBranches(List<Branch> branches) {
+		this.branches = branches;
 	}
 }
