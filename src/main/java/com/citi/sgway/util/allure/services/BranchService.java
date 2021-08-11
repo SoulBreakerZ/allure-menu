@@ -9,15 +9,13 @@ import java.util.List;
 
 public interface BranchService {
 
-	List<Branch> findAll();
-
 	List<Branch> findAllByProjectId(Long projectId);
 
 	Page<Branch> findAll(Pageable pageable);
 
 	Branch save(Branch branch);
 
-	Branch findOne(Long id);
+	Branch findById(Long id);
 
 	void deleteById(Long id);
 

@@ -5,10 +5,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-public class Branch extends Auditable implements Serializable {
+public class Branch  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -19,8 +20,12 @@ public class Branch extends Auditable implements Serializable {
     @NotEmpty
     private String name;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Project project;
+
+    private LocalDateTime createdDate;
+
+    private LocalDateTime lastModifiedDate;
 
     public Long getId() {
         return id;

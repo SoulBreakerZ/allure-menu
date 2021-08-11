@@ -1,6 +1,6 @@
 package com.citi.sgway.util.allure.services.impl;
 
-import com.citi.sgway.util.allure.data.DAOProject;
+import com.citi.sgway.util.allure.data.ProjectDAO;
 import com.citi.sgway.util.allure.data.entity.Project;
 import com.citi.sgway.util.allure.services.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 public class ProjectServiceImpl implements ProjectService {
 
 	@Autowired
-	private DAOProject daoProject;
+	private ProjectDAO daoProject;
 
 	@Override
 	@Transactional(readOnly=true)

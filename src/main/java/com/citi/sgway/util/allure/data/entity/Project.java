@@ -6,12 +6,12 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@EntityListeners(AuditingEntityListener.class)
-public class Project extends Auditable implements Serializable {
+public class Project implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -28,6 +28,10 @@ public class Project extends Auditable implements Serializable {
 
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	private List<Branch> branches;
+
+	private LocalDateTime createdDate;
+
+	private LocalDateTime lastModifiedDate;
 
 	public Long getId() {
 		return id;
@@ -67,5 +71,21 @@ public class Project extends Auditable implements Serializable {
 
 	public void setBranches(List<Branch> branches) {
 		this.branches = branches;
+	}
+
+	public LocalDateTime getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDateTime createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public LocalDateTime getLastModifiedDate() {
+		return lastModifiedDate;
+	}
+
+	public void setLastModifiedDate(LocalDateTime lastModifiedDate) {
+		this.lastModifiedDate = lastModifiedDate;
 	}
 }

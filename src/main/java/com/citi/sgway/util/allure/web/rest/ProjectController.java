@@ -17,11 +17,6 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @GetMapping
-    public List<Project> findAll() {
-        return this.projectService.findAll();
-    }
-
     @GetMapping("/page")
     public Page<Project> findAll(@PageableDefault(page = 0, size = 10)
                                       Pageable pageable) {
@@ -39,7 +34,7 @@ public class ProjectController {
     }
 
     @PutMapping("/{id}")
-    public Project edit(@PathVariable Long id,
+    public Project update(@PathVariable Long id,
                               @RequestBody Project project) {
         return this.projectService.save(project);
     }

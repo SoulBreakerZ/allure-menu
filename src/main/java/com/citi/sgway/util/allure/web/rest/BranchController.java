@@ -17,11 +17,6 @@ public class BranchController {
     @Autowired
     private BranchService branchService;
 
-    @GetMapping
-    public List<Branch> findAll() {
-        return this.branchService.findAll();
-    }
-
     @GetMapping("/page")
     public Page<Branch> findAll(@PageableDefault(page = 0, size = 10)
                                       Pageable pageable) {
@@ -35,7 +30,7 @@ public class BranchController {
 
     @GetMapping("/{id}")
     public Branch findById(@PathVariable Long id) {
-        return this.branchService.findOne(id);
+        return this.branchService.findById(id);
     }
 
     @PostMapping

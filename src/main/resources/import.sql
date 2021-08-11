@@ -27,7 +27,7 @@ INSERT INTO branch (name,project_id,created_date) VALUES('testing', 4,now());
 INSERT INTO branch (name,project_id,created_date) VALUES('master', 4,now());
 
 /* Populate table project_branch */
-INSERT INTO test_project (name, path, description,project_id,branch_id,created_date) VALUES('SG-BATCH REPORT TEST SITE', '/sg-batch','Is reporting site build with allure-report', 1,2,now());
-INSERT INTO test_project (name, path, description,project_id,branch_id,created_date) VALUES('SG-ADMIN REPORT TEST SITE', '/sg-admin','Is reporting site build with allure-report',2,4,now());
-INSERT INTO test_project (name, path, description,project_id,branch_id,created_date) VALUES('SG-CITIMANAGER REPORT TEST SITE', '/sg-citimanager','Is reporting site build with allure-report',3,6,now());
-INSERT INTO test_project (name, path, description,project_id,branch_id,created_date) VALUES('SG-INTERFACES REPORT TEST SITE', '/sg-interfaces','Is reporting site build with allure-report',4,8,now());
+INSERT INTO component (name, path, description,branch_id,created_date) VALUES('SG-BATCH REPORT TEST SITE', '/sg-batch','Is reporting site build with allure-report',2,now());
+INSERT INTO component (name, path, description,branch_id,created_date) VALUES('SG-ADMIN REPORT TEST SITE', '/sg-admin','Is reporting site build with allure-report',4,now());
+INSERT INTO component (name, path, description,branch_id,created_date) VALUES('SG-CITIMANAGER REPORT TEST SITE', '/sg-citimanager','Is reporting site build with allure-report',6,now());
+INSERT INTO component (name, path, description,branch_id,created_date) VALUES('SG-INTERFACES REPORT TEST SITE', '/sg-interfaces','Is reporting site build with allure-report',8,now());

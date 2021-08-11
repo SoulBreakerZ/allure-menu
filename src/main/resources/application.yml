@@ -5,7 +5,7 @@ logging:
                 SQL: debug
 server:
     servlet:
-        context-path: /allure-menu/api/rest
+        context-path: /allure-menu/api
 spring:
     datasource:
         driver-class-name: org.h2.Driver
